@@ -1,19 +1,7 @@
 const Telegraf = require('telegraf');
-const Extra = require('telegraf/extra');
-const Markup = require('telegraf/markup');
-const bot = new Telegraf('5460768156:AAGYNAiH3PmCj5bLdy05yGa1SzFO102_bcg')
-let contagem = 0
 
-const botones = Extra.markup(Markup.inlineKeyboard([ 
-    Markup.callbackButton('+1', 'add 1'),
-    Markup.callbackButton('+10', 'add 10'),
-    Markup.callbackButton('+100', 'add 100'),
-    Markup.callbackButton('-1', 'sub 1'),
-    Markup.callbackButton('-10', 'sub 10'),
-    Markup.callbackButton('-100', 'sub 100'),
-    Markup.callbackButton('🔃 Zerar', 'reset'),
-    Markup.callbackButton('Resultado', 'result')
-], { columns: 3 }))
+const bot = new Telegraf('1822893947:AAGz4PhODQTwqFzP3dnhET7bMZHfIQ1oqfU')
+
 
 bot.hears(['quiero comprar', 'buenos dias', 'quiero informacion'], ctx => {
   ctx.reply('Hola soy un bot 👋 mi nombre es luigui');
@@ -37,8 +25,7 @@ bot.command('start', ctx => {
 })
 
 function sendStartMessage (ctx) {
-const nome = ctx.update.message.from.first_name
-    const startMessage = `Bienvenid@, ${nome}`;
+    const startMessage = "Bienvenid@, este bot Luigui";
 
     bot.telegram.sendMessage(ctx.chat.id, startMessage, {
         reply_markup: {
